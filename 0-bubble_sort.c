@@ -1,33 +1,25 @@
-#include "sort.h"
+#iinclude "sort.h"
 /**
- * bubble_sort - function that sorts an array of ints
- * using bubble sort algorithm
- *
- * @array: array of ints
- * @size: size of array
- *
+ * bubble_sort - sort array lements from min to max value
+ * @array: array
+ * @size: array size
  */
-void bubble_sort(int *array, size_t size);
+void bubble_sort(int *array, size_t size)
 {
-	int temp;
-	size_t i, k;
-
-	if (!array || !size)
+	
+	size_t i, index, tmp = 0;
+	
+	if (size < 2)
 		return;
-
-	i = 0;
-	while (i < size)
-	{
-		for (k = 0; k < size -1; k++)
+	for (i = 0; i < size; i++)
+		for (index = 0; index < size; index++)
 		{
-			if (array[k] > array[k + 1])
+			if (array[index] > array[index + 1] && array[index + 1])
 			{
-				temp = array[k];
-				array[k] = array[k + 1];
-				array[k + 1] = temp;
+				tmp = array[index];
+				array[index] = array[index + 1];
+				array[index + 1] = tmp;
 				print_array(array, size);
 			}
 		}
-		i++;
-	}
 }
